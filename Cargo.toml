@@ -1,0 +1,18 @@
+[package]
+name = "laya-mlx-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Native Rust + MLX implementation of the Laya decision model for Apple Silicon"
+license = "Apache-2.0"
+repository = "https://github.com/andyjusa/laya-mlx-rs"
+readme = "README.md"
+
+[dependencies]
+mlx-rs = { version = "0.32.0", features = ["metal", "safetensors"] }
+tokenizers = "0.23"
+serde = { version = "1", features = ["derive"] }
+# preserve_order keeps JSON object order, which decides the label order of choice answers.
+serde_json = { version = "1", features = ["preserve_order"] }
+ureq = "3"
+axum = "0.8"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "sync"] }
