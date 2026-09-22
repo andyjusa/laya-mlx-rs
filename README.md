@@ -1,9 +1,5 @@
 # laya-mlx-rs
 
-<p align="center">
-  <img src="docs/assets/hero.svg" alt="laya-mlx-rs — native Rust and MLX inference for Apple Silicon" width="100%">
-</p>
-
 A native Rust + MLX implementation of the [Laya](https://huggingface.co/convaiinnovations/laya)
 non-autoregressive decision model for Apple Silicon.
 
