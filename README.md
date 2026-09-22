@@ -1,5 +1,9 @@
 # laya-mlx-rs
 
+<p align="center">
+  <img src="docs/assets/hero.svg" alt="laya-mlx-rs — native Rust and MLX inference for Apple Silicon" width="100%">
+</p>
+
 A native Rust + MLX implementation of the [Laya](https://huggingface.co/convaiinnovations/laya)
 non-autoregressive decision model for Apple Silicon.
 
@@ -29,6 +33,8 @@ Measured on an M4 Pro with 48 GB, three questions at sequence length 96:
 | English encoder, FP16 | 48.5 ms | 42.5 ms |
 | typed-decisions encoder, FP16 | 48.4 ms | 42.9 ms |
 | typed-decisions full forward, FP16 | 52.0 ms | 47.7 ms |
+
+![Latency comparison between Python MLX and Rust MLX](docs/assets/benchmark.svg)
 
 The main optimization is a dtype-aware, shapeless-compiled GELU. Generic mlx-rs GELU constants
 are F32; in an F16 graph that inserts two casts per layer. Reusing one compiled GELU with constants
@@ -106,6 +112,8 @@ curl -X POST http://127.0.0.1:8765/predict \
 ```
 
 ## Architecture
+
+![Laya MLX Rust inference architecture](docs/assets/architecture.svg)
 
 - `model.rs`: ModernBERT encoder and decision head
 - `agent.rs`: checkpoint loading, batching, calibration, and result schema
